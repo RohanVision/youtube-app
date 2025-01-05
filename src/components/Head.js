@@ -1,10 +1,18 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { toggleMenu } from '../utils/appSlice';
 
 const Head = () => {
+    const dispatch = useDispatch();
+
+    const toggleMenuHandler = () => {
+        dispatch(toggleMenu());
+    }
+
     return (
         <div className='flex justify-between p-4 shadow-sm'>
             <div className='flex items-start'>
-                <img className='h-8' src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/640px-Hamburger_icon.svg.png" alt="menu" />
+                <img onClick={() => toggleMenuHandler()} className='h-8 cursor-pointer' src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/640px-Hamburger_icon.svg.png" alt="menu" />
                 <img className='w-48 h-8' src="https://www.logo.wine/a/logo/YouTube/YouTube-Logo.wine.svg" alt="Youtube-Logo" />
             </div>
             <div className='search-bar flex items-center'>

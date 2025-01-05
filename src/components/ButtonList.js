@@ -1,9 +1,13 @@
 import React from 'react'
+import Button from './Button'
 
 const ButtonList = () => {
+    const list = ["All", "Gaming", "Music", "Sports", "Live"]
     return (
-        <div>
-            ButtonList
+        <div className='flex justify-evenly'>
+            {list.map((btn, index) => {
+                return (<Button key={`${btn}-${index}`} name={btn} />)
+            })}
         </div>
     )
 }
