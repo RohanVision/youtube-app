@@ -9,9 +9,8 @@ const VideoCard = ({ info }) => {
             <img className='rounded w-full' alt='thumbnail' src={thumbnails.medium.url} />
             <ul className='p-2 flex flex-col'>
                 <li className='font-bold py-2 h-14 overflow-hidden'>{title}</li>
-                <li>{channelTitle}</li>
+                <li className='font-semibold'>{channelTitle}</li>
                 <li>{statistics.viewCount} Views</li>
-                {/* <li>{publishedAt}</li> */}
             </ul>
         </div>
     )
