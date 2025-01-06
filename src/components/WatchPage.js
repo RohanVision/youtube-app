@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { closeMenu } from '../utils/appSlice';
 import { useSearchParams } from 'react-router-dom';
-import { GOOGLE_API_KEY } from '../utils/constants';
+import { GOOGLE_API_KEY, VIDEO_DETAILS } from '../utils/constants';
 
 
 const WatchPage = () => {
@@ -10,8 +10,7 @@ const WatchPage = () => {
     const [videoDetail, setVideoDetail] = useState(null);
     // console.log(searchParams.get("v"));
     const videoId = searchParams.get("v");
-    const { snippet, statistics } = videoDetail;
-    const { title, channelTitle } = snippet;
+
 
     const dispatch = useDispatch();
     useEffect(() => {
@@ -21,14 +20,19 @@ const WatchPage = () => {
 
 
     const getVideoDetails = async () => {
-        const data = await fetch(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&id=${videoId}&key=${GOOGLE_API_KEY}`);
+        const data = await fetch(`${VIDEO_DETAILS}${videoId}&key=${GOOGLE_API_KEY}`);
         const json = await data.json();;
-        console.log(json.items);
-        setVideoDetail(json.items[0] || []);
+        // console.log(json.items);
+        setVideoDetail(json.items[0] || null);
     }
+
     if (!videoDetail) {
         return <p>Loading...</p>; // Show a loading message while fetching data
     }
+
+    // Destructuring the videoDetail data
+    const { snippet, statistics } = videoDetail;
+    const { title, channelTitle } = snippet;
 
     return (
         <div className='p-4'>
