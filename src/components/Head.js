@@ -1,34 +1,51 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { toggleMenu } from '../utils/appSlice';
 import { YOUTUBE_SEARCH_API } from '../utils/constants';
+import { cacheResults } from '../utils/searchSlice';
+
 
 const Head = () => {
     const [searchQuery, setSearchQuery] = useState("");
     const [suggestion, setSuggestion] = useState([]);
     const [showSuggestion, setShowSuggestion] = useState(false);
+    const dispatch = useDispatch();
+    // subscribe to searchSlice
+    const searchCache = useSelector((store) => store.search);
 
+    // Call the API on every Search Query user made
+    // Well Optimise Search - Search is using live API, Debouncing, Caching
     useEffect(() => {
         const timer = setTimeout(() => {
-            return getSearchSuggestion();
+            if (searchCache[searchQuery]) {
+                setSuggestion(searchCache[searchQuery]);
+            } else {
+                return getSearchSuggestion();
+            }
         }, 200);
         return () => {
             clearTimeout(timer)
         }
     }, [searchQuery]);
 
+    // Fetch the Search Suggestion API
     const getSearchSuggestion = async () => {
         console.log("API CALL" + searchQuery);
         const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
         const json = await data.json();
         // console.log(json);
-        setSuggestion(json[1])
+        setSuggestion(json[1]);
+        // Update cache by dispatching the cacheResults
+        dispatch(cacheResults({
+            [searchQuery]: json[1],
+        }));
     }
 
-    const dispatch = useDispatch();
+    // Toggle Sidbar
     const toggleMenuHandler = () => {
         dispatch(toggleMenu());
     }
+
     return (
         <div className='flex justify-between p-4 shadow-sm'>
             <div className='flex items-start'>
