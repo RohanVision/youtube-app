@@ -2,7 +2,7 @@ import React from 'react'
 
 const ChatMessage = ({ name, message }) => {
     return (
-        <div className='flex items-center flex-wrap'>
+        <div className='flex items-center flex-wrap my-2'>
             <div>
                 <img className='h-6' src="https://static.vecteezy.com/system/resources/previews/019/879/186/non_2x/user-icon-on-transparent-background-free-png.png" alt="User-Icon" />
             </div>

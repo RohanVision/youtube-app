@@ -4,3 +4,5 @@ export const YOUTUBE_VIDEO_API = "https://youtube.googleapis.com/youtube/v3/vide
 export const VIDEO_DETAILS = "https://youtube.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&id=";
 
 export const YOUTUBE_SEARCH_API = "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
+
+export const OFFSET_LIVE_CHAT = 10;
