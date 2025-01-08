@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import ChatMessage from './ChatMessage'
 import { useDispatch, useSelector } from 'react-redux';
 import { addMessage } from '../utils/chatSlice';
@@ -6,7 +6,7 @@ import { generateRandomName, randomMessage } from '../utils/nameHelper';
 
 
 const LiveChat = () => {
-
+    const [liveMessage, setLiveMessage] = useState("");
     const dispatch = useDispatch();
     const chatMessages = useSelector((store) => store.chat.messages);
 
@@ -23,10 +23,6 @@ const LiveChat = () => {
 
     }, []);
 
-    const setChatMessage = () => {
-
-    }
-
 
     return (
         <>
@@ -39,10 +35,18 @@ const LiveChat = () => {
                     }
                 </div>
             </div>
-            <div className='w-full flex border'>
-                <input type="text" className='py-1 px-2 w-96' onChange={(e) => setChatMessage(e.target.value)} />
+            <form className='w-full flex border' onSubmit={(e) => {
+                e.preventDefault();
+                dispatch(addMessage({
+                    name: "Rohan",
+                    message: liveMessage,
+                }));
+                setLiveMessage("")
+            }}>
+                <input type="text" className='py-1 px-2 w-96' value={liveMessage}
+                    onChange={(e) => setLiveMessage(e.target.value)} />
                 <button className='bg-gray-200  rounded-sm '>Submit</button>
-            </div>
+            </form>
         </>
     )
 }
