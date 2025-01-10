@@ -37,7 +37,7 @@ const WatchPage = () => {
     const { title, channelTitle } = snippet;
 
     return (
-        <div className='watchPage-wrapper flex flex-col w-full'>
+        <div className='watchPage-wrapper flex flex-col w-full mt-12'>
             <div className='flex w-full'>
                 <div className='left'>
                     <div className='py-4 pl-4'>

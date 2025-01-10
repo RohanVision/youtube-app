@@ -5,13 +5,22 @@ const VideoCard = ({ info }) => {
     const { snippet, statistics } = info;
     const { channelTitle, title, thumbnails } = snippet;
     return (
-        <div className='w-80 shadow-md my-4'>
+        <div className='w-80 my-4'>
             <img className='rounded w-full' alt='thumbnail' src={thumbnails.medium.url} />
-            <ul className='p-2 flex flex-col'>
-                <li className='font-bold py-2 h-14 overflow-hidden'>{title}</li>
-                <li className='font-semibold'>{channelTitle}</li>
-                <li>{statistics.viewCount} Views</li>
-            </ul>
+
+            <div className='flex items-start justify-start'>
+
+                <img className='w-12 h-12 rounded-full mt-4' src={thumbnails.default.url} alt="thumbnail-small" />
+
+
+                <ul className='p-2 flex flex-col text-left'>
+                    <li className='font-bold py-2 h-14 overflow-hidden flex'>
+                        <span>{title}</span>
+                    </li>
+                    <li className='font-semibold'>{channelTitle}</li>
+                    <li>{statistics.viewCount} Views</li>
+                </ul>
+            </div>
         </div>
     )
 }

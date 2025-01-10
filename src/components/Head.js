@@ -47,15 +47,15 @@ const Head = () => {
     }
 
     return (
-        <div className='flex justify-between p-4 shadow-sm'>
-            <div className='flex items-start'>
-                <img onClick={() => toggleMenuHandler()} className='h-8 cursor-pointer' src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/640px-Hamburger_icon.svg.png" alt="menu" />
-                <img className='w-48 h-8' src="https://www.logo.wine/a/logo/YouTube/YouTube-Logo.wine.svg" alt="Youtube-Logo" />
+        <div className='flex items-center justify-between flex-row px-4 h-14 fixed w-full top-0 left-0 bg-white z-10'>
+            <div className='flex'>
+                <img onClick={() => toggleMenuHandler()} className='h-6 mr-4 cursor-pointer' src="https://icons.veryicon.com/png/o/miscellaneous/linear-icon-45/hamburger-menu-4.png" alt="menu" />
+                <img className='h-5' src="https://cdnlogo.com/logos/y/73/youtube.svg" alt="Youtube-Logo" />
             </div>
-            <div className='search-bar flex items-center flex-col justify-start '>
-                <div>
-                    <input value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} onFocus={() => setShowSuggestion(true)} onBlur={() => setShowSuggestion(false)} className='border border-gray-300 w-96 h-8 p-4 outline-none rounded-l-full' type="text" />
-                    <button className='bg-gray-200 py-2 px-4 border rounded-r-full'><img className='h-4' src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Magnifying_glass_icon.svg/800px-Magnifying_glass_icon.svg.png" alt="search-icon" />
+            <div className='search-bar flex flex-col justify-start w-auto items-center'>
+                <div className='flex items-center h-10'>
+                    <input type="text" placeholder='Search' className='border border-gray-200 w-[450px] h-10 py-2 px-4 outline-none rounded-l-full' value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} onFocus={() => setShowSuggestion(true)} onBlur={() => setShowSuggestion(false)} />
+                    <button className='bg-gray-200 h-10 py-2 px-4 border border-gray-200 rounded-r-full'><img className='h-4' src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Magnifying_glass_icon.svg/800px-Magnifying_glass_icon.svg.png" alt="search-icon" />
                     </button>
                 </div>
                 {showSuggestion && <div className='w-full relative'>
@@ -70,8 +70,9 @@ const Head = () => {
                     </ul>
                 </div>}
             </div>
-            <div className='user'>
-                <img className='h-8' src="https://static.vecteezy.com/system/resources/previews/019/879/186/non_2x/user-icon-on-transparent-background-free-png.png" alt="user-icon" />
+            <div className='user flex'>
+                <img className="h-6 mr-4" src="https://cdn-icons-png.flaticon.com/512/3119/3119338.png" alt="notification" />
+                <img className='h-6' src="https://static.vecteezy.com/system/resources/previews/019/879/186/non_2x/user-icon-on-transparent-background-free-png.png" alt="user-icon" />
             </div>
         </div>
     )
