@@ -6,18 +6,17 @@ const VideoCard = ({ info }) => {
     const { channelTitle, title, thumbnails } = snippet;
     return (
         <div className='w-80 my-4'>
-            <img className='rounded w-full' alt='thumbnail' src={thumbnails.medium.url} />
+            <img className='rounded-xl w-full bg-contain' alt='thumbnail' src={thumbnails.medium.url} />
 
             <div className='flex items-start justify-start'>
 
-                <img className='w-12 h-12 rounded-full mt-4' src={thumbnails.default.url} alt="thumbnail-small" />
-
+                <img className='w-8 h-8 rounded-full mt-4' src={thumbnails.default.url} alt="thumbnail-small" />
 
                 <ul className='p-2 flex flex-col text-left'>
-                    <li className='font-bold py-2 h-14 overflow-hidden flex'>
+                    <li className='font-bold py-2 h-auto flex'>
                         <span>{title}</span>
                     </li>
-                    <li className='font-semibold'>{channelTitle}</li>
+                    <li className='text-sm'>{channelTitle}</li>
                     <li>{statistics.viewCount} Views</li>
                 </ul>
             </div>

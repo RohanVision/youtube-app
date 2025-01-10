@@ -7,7 +7,7 @@ const MainContainer = () => {
     const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
 
     return (
-        <div className={`py-2  flex-1 ${isMenuOpen ? "ml-64" : "ml-0"}`}>
+        <div className={`py-2 flex-1 ${isMenuOpen ? "ml-64" : "ml-0"}`}>
             <ButtonList />
             <VideoContainer />
         </div>

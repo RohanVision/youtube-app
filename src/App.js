@@ -1,11 +1,11 @@
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import './App.css';
 import Body from './components/Body';
 import Head from './components/Head';
 import store from "./utils/store";
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import MainContainer from './components/MainContainer';
 import WatchPage from './components/WatchPage';
+import './App.css';
 
 const appRouter = createBrowserRouter([{
   path: "/",

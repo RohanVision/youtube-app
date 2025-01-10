@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toggleMenu } from '../utils/appSlice';
 import { YOUTUBE_SEARCH_API } from '../utils/constants';
 import { cacheResults } from '../utils/searchSlice';
-
+import { Link } from 'react-router-dom';
 
 const Head = () => {
     const [searchQuery, setSearchQuery] = useState("");
@@ -50,7 +50,10 @@ const Head = () => {
         <div className='flex items-center justify-between flex-row px-4 h-14 fixed w-full top-0 left-0 bg-white z-10'>
             <div className='flex'>
                 <img onClick={() => toggleMenuHandler()} className='h-6 mr-4 cursor-pointer' src="https://icons.veryicon.com/png/o/miscellaneous/linear-icon-45/hamburger-menu-4.png" alt="menu" />
-                <img className='h-5' src="https://cdnlogo.com/logos/y/73/youtube.svg" alt="Youtube-Logo" />
+
+                <img className='h-5 cursor-pointer' src="https://cdnlogo.com/logos/y/73/youtube.svg" alt="Youtube-Logo" />
+
+
             </div>
             <div className='search-bar flex flex-col justify-start w-auto items-center'>
                 <div className='flex items-center h-10'>
