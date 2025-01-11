@@ -61,12 +61,12 @@ const Head = () => {
                     <button className='bg-gray-200 h-10 py-2 px-4 border border-gray-200 rounded-r-full'><img className='h-4' src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Magnifying_glass_icon.svg/800px-Magnifying_glass_icon.svg.png" alt="search-icon" />
                     </button>
                 </div>
-                {showSuggestion && <div className='w-full relative'>
-                    <ul className='fixed bg-gray-200 w-96 rounded-sm shadow-md border-gray-100'>
+                {showSuggestion && <div className='fixed mr-6 top-12 w-[420px] bg-white z-10 rounded-2xl'>
+                    <ul className='bg-white-200  shadow-md border-gray-100 z-10 pb-4'>
                         {
                             suggestion.map((suggest) => {
                                 return (
-                                    <li key={suggest} className='hover:bg-gray-500 hover:text-white    px-2 py-2'><img className='h-4 pr-2 inline' src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Magnifying_glass_icon.svg/800px-Magnifying_glass_icon.svg.png" alt="search-icon" />{suggest}</li>
+                                    <li key={suggest} className='hover:bg-slate-100 text-black px-4 py-2'><img className='h-4 pr-2 inline' src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Magnifying_glass_icon.svg/800px-Magnifying_glass_icon.svg.png" alt="search-icon" />{suggest}</li>
                                 )
                             })
                         }
