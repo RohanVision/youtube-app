@@ -22,3 +22,32 @@
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
+
+
+.arrow-prev::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -30px;
+    width: 80px;
+    height: 100%;
+    background: linear-gradient(to left, slate 20%, rgba(255, 255, 255, 0) 80%);
+    backdrop-filter: blur(5px);
+    /* Apply the blur effect */
+    z-index: -1;
+    border-radius: 50%;
+}
+
+.arrow-next::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -30px;
+    width: 60px;
+    height: 100%;
+    background: linear-gradient(to left, white 20%, rgba(255, 255, 255, 0) 80%);
+    backdrop-filter: blur(5px);
+    /* Apply the blur effect */
+    z-index: -1;
+    border-radius: 50%;
+}
