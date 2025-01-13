@@ -5,7 +5,7 @@ import { useSearchParams } from 'react-router-dom';
 import { GOOGLE_API_KEY, VIDEO_DETAILS } from '../utils/constants';
 import CommentsContainer from './CommentsContainer';
 import LiveChat from './LiveChat';
-import VideoContainer from './VideoContainer';
+import LikedVideoContainer from './LikedVideoContainer';
 
 
 const WatchPage = () => {
@@ -67,11 +67,14 @@ const WatchPage = () => {
             </div>
 
             {/* Mid Section */}
-            <div className='flex justify-between'>
+            <div className='flex justify-around p-2 gap-4'>
                 <div className="w-3/4" >
                     <CommentsContainer />
                 </div>
-                <div className="w-1/4">My Liked <VideoContainer /> </div>
+                <div className="w-1/4">
+                    My Liked
+                    <LikedVideoContainer />
+                </div>
             </div>
         </div>
     )

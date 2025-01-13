@@ -10,8 +10,8 @@ const VideoCard = ({ info }) => {
             <div className='flex items-start justify-start'>
                 <img className='w-8 h-8 rounded-full mt-4' src={thumbnails.default.url} alt="thumbnail-small" />
                 <ul className='p-2 flex flex-col text-left'>
-                    <li className='font-bold py-2 h-auto flex'>
-                        <span>{title}</span>
+                    <li className='font-bold py-2'>
+                        <span className='line-clamp-2 overflow-hidden text-ellipsis'>{title}</span>
                     </li>
                     <li className='text-sm'>{channelTitle}</li>
                     <li>{statistics.viewCount} Views</li>

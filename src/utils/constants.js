@@ -5,6 +5,6 @@ export const VIDEO_DETAILS = "https://youtube.googleapis.com/youtube/v3/videos?p
 
 export const YOUTUBE_SEARCH_API = "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
 
-export const YOUTUBE_MY_VIDEO = 'https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=48&regionCode=CA&key=' + GOOGLE_API_KEY;
+export const YOUTUBE_MY_VIDEO = 'https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=6&regionCode=CA&key=' + GOOGLE_API_KEY;
 
 export const OFFSET_LIVE_CHAT = 20;
