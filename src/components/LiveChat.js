@@ -12,7 +12,7 @@ const LiveChat = () => {
 
     useEffect(() => {
         const messageTimer = setInterval(() => {
-            console.log("API POLLING"); // isntead of We need to fetch live chat data converted to JSON
+            // console.log("API POLLING"); // isntead of We need to fetch live chat data converted to JSON
             dispatch(addMessage({
                 name: generateRandomName(),
                 message: randomMessage(20) + "🚀",
@@ -26,7 +26,11 @@ const LiveChat = () => {
 
     return (
         <>
-            <div className='mt-4 border flex flex-col-reverse w-full h-[600px] border-black p-4 rounded-lg bg-slate-100 overflow-y-scroll'>
+            <div className='flex justify-between border-b-slate-50 border-b-2 my-2 px-2'>
+                <h2 className='font-semibold'>Top Chat</h2>
+                <span className='text-lg'>X</span>
+            </div>
+            <div className='flex flex-col-reverse w-full h-[550px] rounded-lg overflow-y-scroll'>
                 <div>
                     {
                         chatMessages.map((c, index) => {
@@ -35,7 +39,7 @@ const LiveChat = () => {
                     }
                 </div>
             </div>
-            <form className='w-full flex border' onSubmit={(e) => {
+            <form className='w-full flex my-2' onSubmit={(e) => {
                 e.preventDefault();
                 dispatch(addMessage({
                     name: "Rohan",
@@ -43,9 +47,9 @@ const LiveChat = () => {
                 }));
                 setLiveMessage("")
             }}>
-                <input type="text" className='py-1 px-2 w-96' value={liveMessage}
+                <input type="text" className='border border-red-400 border-opacity-45 w-80 p-2 rounded-l-md outline-none' value={liveMessage}
                     onChange={(e) => setLiveMessage(e.target.value)} />
-                <button className='bg-gray-200  rounded-sm '>Submit</button>
+                <button className='bg-red-500 py-2 px-4 rounded-r-md '>Submit</button>
             </form>
         </>
     )

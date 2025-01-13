@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import Body from './components/Body';
 import Head from './components/Head';

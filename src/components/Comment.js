@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 const Comment = ({ data }) => {
     const { name, text, replies } = data;
 
