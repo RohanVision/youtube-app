@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import Button from './Button'
+import { useSelector } from 'react-redux';
 
 const ButtonList = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const list = ["All", "Gaming", "Music", "Sports", "Live", "JavaScript", "Valorant", "DSA", "World", "Superhero Movies", "Comedy", "Watched", "Newly Added", "Live", "Sports"];
+    const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
 
+    const list = ["All", "Gaming", "Music", "Sports", "Live", "JavaScript", "Valorant", "DSA", "World", "Superhero Movies", "Comedy", "Watched", "Newly Added", "Live", "Sports"];
 
     const visibleCount = 3; // Number of buttons visible at once
     const totalButtons = list.length;
@@ -31,7 +33,7 @@ const ButtonList = () => {
 
 
     return (
-        <div className="flex fixed top-14 w-10/12 mx-5 py-2 bg-white z-[1] overflow-hidden">
+        <div className={`${isMenuOpen ? "w-10/12" : "w-full mx-0 justify-center"} flex fixed top-14 mx-5 py-2 bg-white z-[1] overflow-hidden`}>
             <div
                 className="flex relative transition-transform duration-300 mx-auto"
                 style={{
@@ -47,7 +49,7 @@ const ButtonList = () => {
             {currentIndex > 0 && (
                 <button
                     className="arrow-prev absolute left-0 top-1/2 transform -translate-y-1/2 w-10 h-10
-                 hover:bg-slate-300 rounded-full font-bold text-lg"
+                 hover:bg-slate-300 rounded-full font-semibold text-2xl"
                     onClick={prevSlide}
                 >
                     &lt;
@@ -57,7 +59,7 @@ const ButtonList = () => {
             {/* Right Button */}
             {currentIndex < totalButtons - visibleCount && (
                 <button
-                    className="arrow-next mr-2 absolute right-0 top-1/2 transform -translate-y-1/2 w-10 h-10 hover:bg-slate-300 rounded-full font-bold text-lg"
+                    className="arrow-next mr-2 absolute right-0 top-1/2 transform -translate-y-1/2 w-10 h-10 hover:bg-slate-300 rounded-full font-semibold text-2xl"
                     onClick={nextSlide}
                 >
                     &gt;

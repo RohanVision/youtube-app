@@ -49,7 +49,7 @@ const LiveChat = () => {
             }}>
                 <input type="text" className='border border-red-400 border-opacity-45 w-80 p-2 rounded-l-md outline-none' value={liveMessage}
                     onChange={(e) => setLiveMessage(e.target.value)} />
-                <button className='bg-red-500 py-2 px-4 rounded-r-md '>Submit</button>
+                <button className='bg-red-500 text-white py-2 px-4 rounded-r-md '>Submit</button>
             </form>
         </>
     )
