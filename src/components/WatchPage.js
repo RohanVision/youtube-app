@@ -53,9 +53,9 @@ const WatchPage = () => {
                                         <button className='rounded-full px-4 py-2 w-36 bg-gray-300 text-black font-semibold'>Subscribe</button>
                                     </div>
                                     <div className='flex items-center'>
-                                        <button className='mr-2 bg-red-600 text-white rounded py-2 px-4'>{statistics.likeCount} Likes</button>
-                                        <button className='mr-2 bg-red-600 text-white rounded p-2'> Downloads</button>
-                                        <button className='mr-2 bg-red-600 text-white rounded p-2'> Share</button>
+                                        <button className='mr-2 cursor-pointer bg-red-600 text-white rounded py-2 px-4'>{statistics.likeCount} Likes</button>
+                                        <button className='mr-2 cursor-pointer bg-red-600 text-white rounded p-2'> Downloads</button>
+                                        <button className='mr-2 cursor-pointer bg-red-600 text-white rounded p-2'> Share</button>
                                     </div>
                                 </div>
                             </div>
