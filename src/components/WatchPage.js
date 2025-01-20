@@ -6,6 +6,7 @@ import { GOOGLE_API_KEY, VIDEO_DETAILS } from '../utils/constants';
 import CommentsContainer from './CommentsContainer';
 import LiveChat from './LiveChat';
 import LikedVideoContainer from './LikedVideoContainer';
+import { useMemoizeFormatter } from '../utils/viewsFormatter';
 
 
 const WatchPage = () => {
@@ -27,12 +28,19 @@ const WatchPage = () => {
         setVideoDetail(json.items[0] || null);
     }
 
+    // This function cache the results between re-renders of views incase they changed.
+    // calling this function "unconditionally" using fallback value 0 if statistics not available
+    const viewsFormatter = useMemoizeFormatter(videoDetail?.statistics?.viewCount || 0);
+
+    // Reusing the same function for Likes Count
+    const likesFormatter = useMemoizeFormatter(videoDetail?.statistics?.likeCount || 0);
+
     if (!videoDetail) {
         return <p>Loading...</p>; // Show a loading message while fetching data
     }
 
     // Destructuring the videoDetail data
-    const { snippet, statistics } = videoDetail;
+    const { snippet } = videoDetail;
     const { title, channelTitle } = snippet;
 
     return (
@@ -43,19 +51,22 @@ const WatchPage = () => {
                     {
                         videoDetail && (
                             <div>
-                                <h1 className='text-3xl font-bold py-2'>{title}</h1>
-                                <div className='flex justify-between'>
+                                <h1 className='text-xl font-bold py-2'>{title}</h1>
+                                <div className='flex justify-between shadow-sm p-4 rounded-lg'>
                                     <div className='flex items-center'>
                                         <div>
                                             <h2 className='text-lg mr-2 font-semibold'>{channelTitle}</h2>
-                                            <p>{statistics.viewCount} Views</p>
+                                            <p>{viewsFormatter} Views</p>
                                         </div>
-                                        <button className='rounded-full px-4 py-2 w-36 bg-gray-300 text-black font-semibold'>Subscribe</button>
+                                        <button className='rounded-full px-4 py-2 w-36 bg-black text-white font-semibold'>Subscribe</button>
                                     </div>
                                     <div className='flex items-center'>
-                                        <button className='mr-2 cursor-pointer bg-red-600 text-white rounded py-2 px-4'>{statistics.likeCount} Likes</button>
-                                        <button className='mr-2 cursor-pointer bg-red-600 text-white rounded p-2'> Downloads</button>
-                                        <button className='mr-2 cursor-pointer bg-red-600 text-white rounded p-2'> Share</button>
+                                        <button className='flex gap-1 items-center rounded-full mr-2 cursor-pointer bg-gray-200 text-black hover:bg-gray-300 px-4 py-2'>
+                                            <img className='w-5 h-5' src="https://icons.iconarchive.com/icons/iconsmind/outline/256/Like-icon.png" alt="like" />{likesFormatter}</button>
+                                        <button className='flex gap-1 items-center rounded-full mr-2 cursor-pointer bg-gray-200 text-black hover:bg-gray-300 px-4 py-2'>
+                                            <img className='w-5 h-5 text-white' src="https://cdn-icons-png.flaticon.com/512/6469/6469436.png" alt="share" /> Share</button>
+                                        <button className='flex gap-1 items-center rounded-full mr-2 cursor-pointer bg-gray-200 text-black hover:bg-gray-300 px-4 py-2'>
+                                            <img className='w-6 h-6' src="https://pixsector.com/cache/5d353540/av3544fca9fdc10112f68.png" alt="download" />Downloads</button>
                                     </div>
                                 </div>
                             </div>
@@ -63,7 +74,7 @@ const WatchPage = () => {
                     }
 
                 </div>
-                <div className='live-chats border h-[669px] border-black-200 lg:w-1/4 w-full p-2 rounded-lg'>
+                <div className='live-chats border h-[800px] border-black-200 lg:w-1/4 w-full p-2 rounded-lg'>
                     <LiveChat />
                 </div>
             </div>
@@ -74,7 +85,7 @@ const WatchPage = () => {
                     <CommentsContainer />
                 </div>
                 <div className="w-1/4">
-                    My Liked
+                    <h2 className='text-lg font-semibold py-2'>Popular Videos</h2>
                     <LikedVideoContainer />
                 </div>
             </div>

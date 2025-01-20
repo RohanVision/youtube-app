@@ -30,7 +30,7 @@ const LiveChat = () => {
                 <h2 className='font-semibold'>Top Chat</h2>
                 <span className='text-lg'>X</span>
             </div>
-            <div className='flex flex-col-reverse w-full h-[550px] rounded-lg overflow-y-scroll'>
+            <div className='flex flex-col-reverse w-full h-[670px] rounded-lg overflow-y-scroll'>
                 <div>
                     {
                         chatMessages.map((c, index) => {
