@@ -55,16 +55,22 @@ const Head = () => {
             </div>
             <div className='search-bar flex flex-col justify-start w-auto items-center'>
                 <div className='flex items-center h-10'>
-                    <input type="text" placeholder='Search' className='border border-gray-200 w-[450px] h-10 py-2 px-4 outline-none rounded-l-full' value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} onFocus={() => setShowSuggestion(true)} onBlur={() => setShowSuggestion(false)} />
+                    <input type="text" placeholder='Search' className='border border-gray-200 w-[450px] h-10 py-2 px-4 outline-none rounded-l-full' value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} onFocus={() => setShowSuggestion(true)} onBlur={() => setTimeout(() => setShowSuggestion(false), 100)} />
                     <button className='bg-gray-200 h-10 py-2 px-4 border border-gray-200 rounded-r-full'><img className='h-4' src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Magnifying_glass_icon.svg/800px-Magnifying_glass_icon.svg.png" alt="search-icon" />
                     </button>
                 </div>
+
                 {showSuggestion && <div className='fixed mr-6 top-12 w-[420px] bg-white z-10 rounded-2xl'>
                     <ul className='bg-white-200  shadow-md border-gray-100 z-10 pb-4'>
                         {
                             suggestion.map((suggest) => {
                                 return (
-                                    <li key={suggest} className='hover:bg-slate-100 text-black px-4 py-2'><img className='h-4 pr-2 inline' src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Magnifying_glass_icon.svg/800px-Magnifying_glass_icon.svg.png" alt="search-icon" />{suggest}</li>
+                                    <li key={suggest} className='hover:bg-slate-100 text-black px-4 py-2'>
+                                        <Link to={`/search?q=${suggest}`}>
+                                            <img className='h-4 pr-2 inline' src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Magnifying_glass_icon.svg/800px-Magnifying_glass_icon.svg.png" alt="search-icon" />
+                                            {suggest}
+                                        </Link>
+                                    </li>
                                 )
                             })
                         }

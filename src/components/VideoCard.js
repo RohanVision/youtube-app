@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React from 'react'
 import { useMemoizeFormatter } from '../utils/viewsFormatter';
 
 const VideoCard = ({ info }) => {
@@ -7,7 +7,7 @@ const VideoCard = ({ info }) => {
     const { channelTitle, title, thumbnails } = snippet;
 
     // This function cache the results between re-renders of views incase they changed.
-    const viewsFormatter = useMemoizeFormatter(statistics.viewCount);
+    const viewsFormatter = useMemoizeFormatter(statistics?.viewCount);
 
     return (
         <div className='w-80 my-4'>

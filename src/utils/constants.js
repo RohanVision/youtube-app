@@ -7,4 +7,6 @@ export const YOUTUBE_SEARCH_API = "http://suggestqueries.google.com/complete/sea
 
 export const YOUTUBE_MY_VIDEO = 'https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=6&regionCode=CA&key=' + GOOGLE_API_KEY;
 
+export const SERACH_VIDEO = 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=';
+
 export const OFFSET_LIVE_CHAT = 20;
