@@ -1,10 +1,12 @@
-import React from 'react'
+import React from 'react';
+import { useMemoizeFormatter } from '../utils/viewsFormatter';
 
 const LikeVideoCard = ({ info }) => {
     // console.log(info);
-
     const { snippet, statistics } = info;
     const { title, thumbnails, channelTitle } = snippet;
+    const viewsFormatter = useMemoizeFormatter(statistics?.viewCount || 0);
+
     if (!info || !info.snippet) {
         // Return null or a loading placeholder if info is not available
         return <p>Loading...</p>;
@@ -15,9 +17,9 @@ const LikeVideoCard = ({ info }) => {
                 <img className='rounded-lg w-full h-full object-cover' src={thumbnails.medium.url} alt="thumb" />
             </div>
             <div>
-                <p className='line-clamp-2 overflow-hidden text-ellipsis'>{title}</p>
-                <p className='text-slate-500'>{channelTitle}</p>
-                <p className='text-slate-500'>{statistics.viewCount}</p>
+                <p className='line-clamp-2 font-bold overflow-hidden text-ellipsis'>{title}</p>
+                <p className='text-slate-500 font-semibold'>{channelTitle}</p>
+                <p className='text-slate-500 text-sm font-semibold'>{viewsFormatter} Views</p>
             </div>
         </div>
     )

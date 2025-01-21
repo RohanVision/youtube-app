@@ -35,7 +35,7 @@ const appRouter = createBrowserRouter([{
 function App() {
   return (
     <Provider store={store}>
-      <div className="App">
+      <div className="App overflow-x-hidden">
         <RouterProvider router={appRouter} />
       </div>
     </Provider >
