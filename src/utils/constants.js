@@ -4,7 +4,7 @@ export const YOUTUBE_VIDEO_API = "https://proxy.cors.sh/https://youtube.googleap
 
 export const VIDEO_DETAILS = "https://proxy.cors.sh/https://youtube.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&id=";
 
-export const YOUTUBE_SEARCH_API = "https://proxy.cors.sh/http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
+export const YOUTUBE_SEARCH_API = "https://proxy.cors.sh/http://suggestqueries.google.com/complete/search?client=chrome&ds=yt&q=";
 
 export const YOUTUBE_MY_VIDEO = 'https://proxy.cors.sh/https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=6&regionCode=CA&key=' + GOOGLE_API_KEY;
 
