@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { YOUTUBE_MY_VIDEO } from '../utils/constants'
 import LikeVideoCard from './LikeVideoCard';
+import { Link } from 'react-router-dom';
 
 const LikedVideoContainer = () => {
     const [video, setVideos] = useState([]);
@@ -20,7 +21,9 @@ const LikedVideoContainer = () => {
         <div>
             {
                 video.map((videos) => {
-                    return <LikeVideoCard key={videos.id} info={videos} />
+                    return <Link to={"/watch?v=" + videos.id}>
+                        <LikeVideoCard key={videos.id} info={videos} />
+                    </Link>
                 })
             }
         </div>

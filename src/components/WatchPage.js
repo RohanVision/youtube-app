@@ -8,7 +8,6 @@ import LiveChat from './LiveChat';
 import LikedVideoContainer from './LikedVideoContainer';
 import { useMemoizeFormatter } from '../utils/viewsFormatter';
 
-
 const WatchPage = () => {
     const [searchParams] = useSearchParams();
     const [videoDetail, setVideoDetail] = useState(null);
@@ -80,9 +79,11 @@ const WatchPage = () => {
                     }
 
                 </div>
+
                 <div className='live-chats border h-[800px] border-black-200 lg:w-1/4 w-full p-2 rounded-lg'>
                     <LiveChat />
                 </div>
+
             </div>
 
             {/* Mid Section */}
@@ -95,7 +96,7 @@ const WatchPage = () => {
                     <LikedVideoContainer />
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 

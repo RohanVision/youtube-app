@@ -1,5 +1,6 @@
 import React from 'react'
 import { useMemoizeFormatter } from '../utils/viewsFormatter';
+import { Link } from 'react-router-dom';
 
 const VideoCard = ({ info }) => {
     // console.log(info); // check data recived or not
@@ -27,13 +28,15 @@ const VideoCard = ({ info }) => {
 }
 
 // Higher Order Component
-// export const AdVideoCard = ({ info }) => {
-//     return (
-//         <div className='border-red-500 relative'>
-//             <p className='bg-black p-2 text-white w-10 rounded-md absolute left-0'>Ad</p>
-//             <VideoCard info={info} />
-//         </div>
-//     )
-// }
+export const AdVideoCard = ({ info, to }) => {
+    return (
+        <Link to={to}>
+            <div className='border-red-500 relative'>
+                <p className='bg-red-500 px-4 py-1 text-white w-auto rounded-md absolute right-0 top-40'>Live</p>
+                <VideoCard info={info} />
+            </div>
+        </Link>
+    )
+}
 
 export default VideoCard;

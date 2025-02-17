@@ -33,7 +33,7 @@ const ButtonList = () => {
 
 
     return (
-        <div className={`${isMenuOpen ? "hidden md:10/12 md:block" : "w-10/12 md:w-full mx-0 justify-center"} flex fixed top-14 mx-5 py-2 bg-white z-[1] overflow-hidden`}>
+        <div className={`${isMenuOpen ? "hidden md:w-10/12 md:block" : "w-11/12 md:w-full mx-0 justify-center"} flex fixed top-14 mx-5 py-2 bg-white z-[1] overflow-hidden`}>
             <div
                 className="flex relative transition-transform duration-300 mx-auto"
                 style={{

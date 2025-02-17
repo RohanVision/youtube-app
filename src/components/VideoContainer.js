@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { YOUTUBE_VIDEO_API } from '../utils/constants';
-import VideoCard from './VideoCard';
 import { Link } from 'react-router-dom';
+import { YOUTUBE_VIDEO_API } from '../utils/constants';
+import VideoCard, { AdVideoCard } from './VideoCard';
 
 const VideoContainer = () => {
     const [videos, setVideos] = useState([]);
@@ -18,8 +18,10 @@ const VideoContainer = () => {
     }
     return (
         <div className='flex flex-wrap justify-evenly relative top-24 h-[calc(100vh-56px)]'>
-            {/* Higher order Component */}
-            {/* {videos[0] && <AdVideoCard info={videos[0]} />} */}
+            {/* Higher Order Component */}
+            {videos[8] && <AdVideoCard info={videos[8]} to={"/watch?v=" + videos[0].id} />}
+            {/* Higher Order Component */}
+
             {videos.map((video) => {
                 return <Link key={video.id} to={"/watch?v=" + video.id}>
                     <VideoCard info={video} />
