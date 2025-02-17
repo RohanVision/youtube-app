@@ -19,7 +19,6 @@ const Head = () => {
         const timer = setTimeout(() => {
             if (searchCache[searchQuery]) {
                 setSuggestion(searchCache[searchQuery]);
-                return;
             } else {
                 return getSearchSuggestion();
             }
