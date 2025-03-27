@@ -9,7 +9,6 @@ const SearchVideoList = () => {
     const query = searchParam.get("q"); // Get the query from the URL
 
     useEffect(() => {
-        console.log("SearchVideoList rendered with query:", query);
         if (query) {
             getSearchVideos();
         }

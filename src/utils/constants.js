@@ -1,17 +1,16 @@
 export const GOOGLE_API_KEY = "AIzaSyD0oikU5dO-bEBTZmnUpE35wOCIi6b5e04";
 
-export const YOUTUBE_VIDEO_API = "https://proxy.cors.sh/https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=48&regionCode=CA&key=" + GOOGLE_API_KEY;
+export const YOUTUBE_VIDEO_API = "https://corsproxy.io/?https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=48&regionCode=CA&key=" + GOOGLE_API_KEY;
 
-export const VIDEO_DETAILS = "https://proxy.cors.sh/https://youtube.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&id=";
+export const VIDEO_DETAILS = "https://corsproxy.io/?https://youtube.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&id=";
 
-export const YOUTUBE_SEARCH_API = "https://proxy.cors.sh/https://suggestqueries.google.com/complete/search?client=chrome&ds=yt&q=";
+export const YOUTUBE_SEARCH_API = "https://corsproxy.io/?https://suggestqueries.google.com/complete/search?client=chrome&ds=yt&q=";
 
-export const YOUTUBE_MY_VIDEO = 'https://proxy.cors.sh/https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=6&regionCode=CA&key=' + GOOGLE_API_KEY;
+export const YOUTUBE_MY_VIDEO = 'https://corsproxy.io/?https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=6&regionCode=CA&key=' + GOOGLE_API_KEY;
 
-export const SERACH_VIDEO = 'https://proxy.cors.sh/https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=';
+export const SERACH_VIDEO = 'https://corsproxy.io/?https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=';
 
 export const OFFSET_LIVE_CHAT = 20;
-
 
 
 export const SIDEBAR_IMG = {
