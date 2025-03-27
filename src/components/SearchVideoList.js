@@ -19,7 +19,6 @@ const SearchVideoList = () => {
         const data = await fetch(`${SERACH_VIDEO}${query}&key=${GOOGLE_API_KEY}`);
         const json = await data.json();
         setSearchVideos(json.items);
-        console.log(json.items);
     };
 
     return (

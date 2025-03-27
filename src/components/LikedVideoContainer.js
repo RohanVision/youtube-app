@@ -21,7 +21,7 @@ const LikedVideoContainer = () => {
         <div>
             {
                 video.map((videos) => {
-                    return <Link to={"/watch?v=" + videos.id}>
+                    return <Link key={videos.id} to={"/watch?v=" + videos.id}>
                         <LikeVideoCard key={videos.id} info={videos} />
                     </Link>
                 })
